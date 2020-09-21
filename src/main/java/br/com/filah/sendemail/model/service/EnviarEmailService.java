@@ -21,7 +21,7 @@ public class EnviarEmailService {
 	public Session inciarSessao(String user, String senha, Properties props) {
 		Session session = null;
 		try {
-			session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+			session = Session.getDefaultInstance(getProperties(), new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
 					return new PasswordAuthentication(user, senha);
 				}
@@ -64,6 +64,7 @@ public class EnviarEmailService {
 		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.port", "465");
+		props.put("mail.debug", "true");
 		return props;
 	}
 }

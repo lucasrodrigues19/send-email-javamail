@@ -15,23 +15,34 @@
 </head>
 <body>
 
-	<div class="panel panel-default" style="margin: 10px">
-		<form class="form-inline" method="POST" th:action="@{/enviaremail}"
+	<div class="panel panel-default" style="margin: 20px">
+		<form method="POST" th:action="@{/enviaremail}"
 			th:object="${dadosMensagem}" style="margin: 20px 0">
-			<div class="form-group">
-				<input type="text" th:field="*{remetente}" class="form-control"placeholder="Nome" /> 
+			<div class="form-group row">
+				<div class="col">
+				<label for="txtRemetente">Remetente</label>
+				<input type="text" id="txtRemetente" th:field="*{remetente}" class="form-control"placeholder="seu@gmail.com.br" /> 
+				</div>
+				<div class="col">
+				<label for="txtSenha">Senha</label>
+				<input type="password" id="txtSenha" th:field="*{senha}" class="form-control"placeholder="Senha" />
+				</div>
+				</div>
 				
-				<input type="password"th:field="*{senha}" class="form-control"placeholder="Acompanhantes" />
+				<div class="form-group row">
+				<label for="txtDestinatários">Destinatários</label>
+				<input type="text" id="txtDestinatários" th:field="*{destinatarios}" class="form-control"placeholder="Ex: seuamigo@gmail.com, seucolega@outlook.com" />
 				
-				<button type="submit" class="btn btn-primary">Adicionar</button>
-			</div>
-
+				<label for="txtAssunto">Assunto</label>
+				<input type="text" id="txtAssunto" th:field="*{assunto}" class="form-control"placeholder="Assunto" />
+				
+				<label for="txtMensagem">Mensagem</label>
+				<textarea class="form-control" id="txtMensagem" th:field="*{mensagem}" rows="3"></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Enviar</button>
 
 		</form>
-		<div class="panel-heading">
-			<h1 class="container">Enviar email</h1>
 		</div>
-
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
