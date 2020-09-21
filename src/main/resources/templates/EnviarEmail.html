@@ -16,15 +16,19 @@
 <body>
 
 	<div class="panel panel-default" style="margin: 10px">
-		
+		<form class="form-inline" method="POST" th:action="@{/enviaremail}"
+			th:object="${dadosMensagem}" style="margin: 20px 0">
+			<div class="form-group">
+				<input type="text" th:field="*{nome}" class="form-control"placeholder="Nome" /> 
+				<input type="text"th:field="*{qtdAcompanhantes}" class="form-control"placeholder="Acompanhantes" />
+				<button type="submit" class="btn btn-primary">Adicionar</button>
+			</div>
+
+
+		</form>
 		<div class="panel-heading">
 			<h1 class="container">Enviar email</h1>
 		</div>
-		<div class="pane-body">
-			<table class="table">
-				
-
-	</div>
 
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
