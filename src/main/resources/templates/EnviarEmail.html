@@ -19,8 +19,10 @@
 		<form class="form-inline" method="POST" th:action="@{/enviaremail}"
 			th:object="${dadosMensagem}" style="margin: 20px 0">
 			<div class="form-group">
-				<input type="text" th:field="*{nome}" class="form-control"placeholder="Nome" /> 
-				<input type="text"th:field="*{qtdAcompanhantes}" class="form-control"placeholder="Acompanhantes" />
+				<input type="text" th:field="*{remetente}" class="form-control"placeholder="Nome" /> 
+				
+				<input type="password"th:field="*{senha}" class="form-control"placeholder="Acompanhantes" />
+				
 				<button type="submit" class="btn btn-primary">Adicionar</button>
 			</div>
 
